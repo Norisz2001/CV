@@ -1,0 +1,16 @@
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-black navbar-expand-lg" ng-controller="NavbarController">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+        <a class="navbar-brand" href="#home">My Portfolio</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item" ng-repeat="item in navbarItems">
+                    <a class="nav-link" href="" ng-click="scrollTo(item.link)">{{item.name}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

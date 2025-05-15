@@ -1,0 +1,756 @@
+body {
+    font-family: 'Manrope', sans-serif; /* Apply Manrope font globally */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #efd09e; /* Weboldal alapértelmezett háttérszíne */
+}
+
+.home_greeting,
+.home_title,
+.home_subtitle,
+.home_description,
+.home_button,
+.metric_value,
+.metric_label,
+.feature_title,
+.feature_description {
+    font-family: 'Manrope', sans-serif;
+    color: #272727; /* Set text color */
+}
+
+.home {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    gap: 50px;
+}
+
+.home_visual {
+    flex: 1;
+    text-align: right;
+    max-width: 600px;
+}
+
+.home_visual img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 600px;
+}
+
+.home_content {
+    flex: 1;
+    text-align: left;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.home_greeting {
+    font-size: 40px;
+}
+
+.home_title {
+    font-size: 110px;
+    line-height: 0.9em;
+}
+
+.home_subtitle {
+    font-style: italic;
+}
+
+.home_description {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.home_button {
+    background-color: #d4aa7d; /* Button background color */
+    color: #272727; /* Button text color */
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 20px;
+    align-self: flex-start; /* Align the button to the left */
+}
+
+.metric_card {
+    text-align: center;
+    margin: 10px;
+}
+
+.metric_value {
+    font-size: 40px;
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+.metric_label {
+    font-size: 20px;
+    opacity: 0.6;
+}
+
+/* Features Section */
+.features {
+    background-color: inherit; /* Örökölje a weboldal háttérszínét */
+    padding: 60px 20px;
+}
+
+.features_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Rugalmas oszlopok */
+    gap: 20px; /* Térköz a dobozok között */
+    margin-top: 30px;
+}
+
+/* Features Card */
+.feature_card {
+    background-color: inherit; /* Örökölje a weboldal háttérszínét */
+    border-radius: 8px; /* Lekerekített sarkok */
+    box-shadow: none; /* Távolítsd el az árnyékot */
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature_card:hover {
+    transform: translateY(-5px); /* Enyhe emelkedés hover esetén */
+    box-shadow: none; /* Hover esetén is távolítsd el az árnyékot */
+}
+
+.feature_icon {
+    font-size: 2.5rem; /* Nagy ikonméret */
+    color: #007bff; /* Alapértelmezett kék szín */
+    margin-bottom: 15px;
+}
+
+.feature_title {
+    font-size: 1.25rem; /* Közepes cím betűméret */
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.feature_description {
+    font-size: 0.95rem; /* Kisebb leírás betűméret */
+    color: #6c757d; /* Halvány szürke szöveg */
+}
+
+/* About Me Section */
+.about-me {
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Required for the glass effect */
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
+    backdrop-filter: blur(10px); /* Apply the glass blur effect */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Optional: Add a subtle border */
+    border-radius: 20px; /* Rounded corners for the glass effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add a shadow for depth */
+    text-align: center;
+}
+
+.about-me_container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    gap: 40px;
+    align-items: center;
+}
+
+.about-me_image {
+    flex: 1;
+    text-align: center;
+}
+
+.about-me_image img {
+    width: 100%;
+    max-width: 400px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.about-me_image img:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Add shadow on hover */
+}
+
+.about-me_content {
+    flex: 2;
+    text-align: left;
+}
+
+.about-me_title {
+    font-size: 42px;
+    font-family: 'Manrope', sans-serif;
+    color: #272727; /* Title text color for contrast */
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.about-me_title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 50px;
+    height: 4px;
+    background-color: #d4aa7d; /* Decorative underline color */
+    border-radius: 2px;
+}
+
+.about-me_description {
+    font-size: 18px;
+    font-family: 'Manrope', sans-serif;
+    color: #272727; /* Description text color */
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+/* Glassmorphism effect for About Me content */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
+    backdrop-filter: blur(10px); /* Apply the glass blur effect */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border */
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add a shadow for depth */
+    padding: 20px;
+}
+
+/* Lightbox effect for About Me image */
+.lightbox img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.lightbox img:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Add shadow on hover */
+}
+
+/* Education Section */
+.education {
+    padding: 60px 20px;
+    background-color: inherit; /* Match the webpage background color */
+    text-align: center;
+}
+
+.education_container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.education_title {
+    font-size: 42px;
+    font-family: 'Manrope', sans-serif;
+    color: #272727; /* Title text color */
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.education_title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+    width: 50px;
+    height: 4px;
+    background-color: #d4aa7d; /* Decorative underline color */
+    border-radius: 2px;
+}
+
+.education_item {
+    margin-bottom: 30px;
+}
+
+.education_degree {
+    font-size: 24px;
+    font-family: 'Manrope', sans-serif;
+    color: #272727; /* Degree text color */
+    margin-bottom: 5px;
+}
+
+.education_institution {
+    font-size: 18px;
+    font-family: 'Manrope', sans-serif;
+    color: #d4aa7d; /* Institution text color */
+    margin-bottom: 5px;
+}
+
+.education_year {
+    font-size: 16px;
+    font-family: 'Manrope', sans-serif;
+    color: #272727; /* Year text color */
+    opacity: 0.8;
+}
+
+/* Work Section */
+.work {
+    padding: 60px 20px;
+    background-color: inherit; /* Match the webpage background color */
+    text-align: center;
+}
+
+.work_container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.work_title {
+    font-size: 42px;
+    font-family: 'Manrope', sans-serif;
+    color: #272727; /* Title text color */
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.work_title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+    width: 50px;
+    height: 4px;
+    background-color: #d4aa7d; /* Decorative underline color */
+    border-radius: 2px;
+}
+
+.work_item {
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.work_position {
+    font-size: 24px;
+    font-family: 'Manrope', sans-serif;
+    color: #272727; /* Position text color */
+    margin-bottom: 5px;
+}
+
+.work_company {
+    font-size: 18px;
+    font-family: 'Manrope', sans-serif;
+    color: #d4aa7d; /* Company text color */
+    margin-bottom: 5px;
+}
+
+.work_year {
+    font-size: 16px;
+    font-family: 'Manrope', sans-serif;
+    color: #272727; /* Year text color */
+    opacity: 0.8;
+    margin-bottom: 10px;
+}
+
+.work_description {
+    font-size: 16px;
+    font-family: 'Manrope', sans-serif;
+    color: #272727; /* Description text color */
+    line-height: 1.6;
+}
+
+/* Skills Section */
+.skills {
+    padding: 60px 20px;
+    background-color: inherit; /* Match the webpage background color */
+    text-align: center;
+}
+
+.skills_container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.skills_title {
+    font-size: 42px;
+    font-family: 'Manrope', sans-serif;
+    color: #272727; /* Title text color */
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.skills_title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+    width: 50px;
+    height: 4px;
+    background-color: #d4aa7d; /* Decorative underline color */
+    border-radius: 2px;
+}
+
+.skills_list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.skill_item {
+    text-align: left;
+}
+
+.skill_name {
+    font-size: 16px; /* Reduce the font size */
+    text-transform: capitalize; /* Only capitalize the first letter of each word */
+}
+
+.skill_bar {
+    width: 100%;
+    height: 10px;
+    background-color: #d4aa7d; /* Background for the skill bar */
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.skill_level {
+    height: 100%;
+    background-color: #272727; /* Skill level bar color */
+    border-radius: 5px;
+}
+
+.skill-card {
+    width: 200px; /* Kisebb kártyák */
+    margin: 10px auto; /* Középre igazítás */
+    text-align: center; /* Szöveg középre igazítása */
+    height: 100%; /* Ensure all skill cards have the same height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    /* Glassmorphism effect */
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    /* Ensure text stays within the box */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.skill-progress {
+    height: 32px;
+    background: #e9ecef;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+}
+
+.skill-percent {
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.1em;
+    text-shadow: 0 1px 2px #222;
+    z-index: 2;
+    pointer-events: none;
+    padding: 2px 12px;
+    border-radius: 12px;
+    background: #198754; /* Default green background */
+    transition: background 0.3s;
+}
+
+.progress-bar {
+    animation: progressAnimation 2s ease-in-out forwards; /* Animáció a progress barhoz */
+    height: 20px; /* Set a uniform height for all progress bars */
+    border-radius: 10px; /* Add rounded corners for consistency */
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Dinamikus háttérszín a százalékos értékhez: világosabb, ha a sáv rövid, sötétebb, ha hosszú */
+.skill-progress[data-skill-level="80"] .skill-percent { background: #157347; }
+.skill-progress[data-skill-level="60"] .skill-percent { background: #ffc107; color: #222; }
+.skill-progress[data-skill-level="35"] .skill-percent { background: #fd7e14; }
+.skill-progress[data-skill-level="85"] .skill-percent { background: #0d6efd; }
+
+/* Alapértelmezett, ha nincs data attribútum */
+.skill-progress .skill-percent { background: #198754; }
+
+.progress-bar::after {
+    content: attr(aria-valuenow) '%'; /* Display the progress percentage */
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 14px;
+}
+
+@keyframes progressAnimation {
+    from {
+        width: 0%;
+    }
+    to {
+        width: var(--progress-width); /* Dinamikus szélesség */
+    }
+}
+
+/* Timeline Section */
+.timeline {
+    background-color: inherit; /* Örökölje a weboldal háttérszínét */
+    padding: 60px 20px;
+    position: relative;
+    box-shadow: none; /* Távolítsd el az esetleges árnyékokat */
+    border: none; /* Távolítsd el az esetleges kereteket */
+}
+
+.timeline_container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.timeline_title {
+    font-size: 36px;
+    font-family: 'Manrope', sans-serif;
+    color: #272727;
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.timeline_title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+    width: 50px;
+    height: 4px;
+    background-color: #d4aa7d; /* Decorative underline */
+    border-radius: 2px;
+}
+
+.timeline_section {
+    margin-bottom: 40px;
+}
+
+.timeline_section_title {
+    font-size: 28px;
+    font-family: 'Manrope', sans-serif;
+    color: #272727;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Grid Layout for Boxes */
+.timeline_grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Két oszlopos elrendezés */
+    grid-auto-rows: auto; /* Automatikus sorok */
+    gap: 20px; /* Térköz a kártyák között */
+    justify-content: center; /* Középre igazítás */
+}
+
+/* Munkahelyi kártyák középre igazítása */
+.timeline_box:nth-child(1), .timeline_box:nth-child(2) {
+    grid-column: span 1; /* Az első két kártya (munkahelyek) az első sorban */
+    justify-self: center; /* Középre igazítás */
+}
+
+/* Oktatási kártyák a második sorban */
+.timeline_box:nth-child(3), .timeline_box:nth-child(4), .timeline_box:nth-child(5) {
+    grid-column: span 1; /* Az oktatási kártyák a második sorban */
+    grid-row: 2; /* Második sor */
+}
+
+.timeline_box {
+    height: 200px; /* Egységes magasság */
+    width: 100%; /* Egységes szélesség */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Tartalom középre igazítása */
+    align-items: center; /* Tartalom középre igazítása */
+    box-sizing: border-box; /* Padding figyelembe vétele */
+    text-align: center; /* Center align text */
+    margin: auto; /* Center align each box */
+    background-color: inherit; /* Örökölje a weboldal háttérszínét */
+    box-shadow: none; /* Távolítsd el az árnyékot */
+    padding: 15px; /* Csökkentett padding */
+    border-radius: 6px; /* Kisebb lekerekítés */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Egyenletes elosztás a tartalom között */
+    height: auto; /* Automatikus magasság */
+}
+
+.timeline_box:hover {
+    transform: translateY(-5px); /* Enyhe emelkedés hover esetén */
+    box-shadow: none; /* Hover esetén is távolítsd el az árnyékot */
+}
+
+/* Glassmorphism effect for timeline cards */
+.timeline_box.glass-effect {
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
+    backdrop-filter: blur(10px); /* Apply the glass blur effect */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border */
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add a shadow for depth */
+}
+
+/* Betűméretek csökkentése */
+.timeline_heading {
+    font-size: 18px; /* Kisebb cím betűméret */
+}
+
+.timeline_year {
+    font-size: 14px; /* Kisebb év betűméret */
+}
+
+.timeline_subheading {
+    font-size: 14px; /* Kisebb alcím betűméret */
+}
+
+.timeline_description {
+    font-size: 13px; /* Kisebb leírás betűméret */
+}
+
+/* Ensure all elements are visible by default */
+.fade-in-left {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .timeline_grid {
+        grid-template-columns: 1fr; /* 1 oszlop kisebb képernyőkön */
+    }
+
+    .timeline_box {
+        padding: 10px; /* Még kisebb padding */
+    }
+
+    .timeline_heading {
+        font-size: 18px; /* Kisebb cím betűméret */
+    }
+
+    .timeline_year {
+        font-size: 14px; /* Kisebb év betűméret */
+    }
+
+    .timeline_subheading {
+        font-size: 14px; /* Kisebb alcím betűméret */
+    }
+
+    .timeline_description {
+        font-size: 13px; /* Kisebb leírás betűméret */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .timeline_grid {
+        grid-template-columns: 1fr; /* 1 box per row on very small screens */
+    }
+}
+
+/* Hobbies Section */
+.hobby-card {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    overflow: hidden;
+}
+
+.hobby-card img {
+    max-height: 150px;
+    object-fit: cover;
+}
+
+.hobby_name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.hobby_description {
+    font-size: 14px;
+    color: #6c757d;
+}
+
+/* Professions Section */
+.profession-card {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    overflow: hidden;
+}
+
+.profession-card img {
+    max-height: 150px;
+    object-fit: cover;
+}
+
+.profession_name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.profession_description {
+    font-size: 14px;
+    color: #6c757d;
+}
+
+/* Languages and License Section */
+.languages-box, .license-box {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 100%; /* Ensure both boxes have the same height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.languages-box ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+.languages-box li {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.license-box p {
+    font-size: 16px;
+    margin: 0;
+}
+
+.page-container {
+    position: relative;
+    z-index: 0;
+}
+
+/* Bootstrap navbar fix: mindig látható legyen, ne takarja ki semmi */
+.navbar {
+    z-index: 1050;
+}
+
+header.sticky-top {
+    z-index: 1040;
+}
+
+main.position-relative.flex-fill {
+    padding-top: 70px;
+}

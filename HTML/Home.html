@@ -1,0 +1,218 @@
+<!-- Home Section -->
+<section class="home" id="home" ng-controller="HomeController">
+    <div class="home_content">
+        <!-- Greeting and Introduction -->
+        <h1 class="home_greeting">Hey. I'm <span class="home_name">{{ userName }}</span>,</h1>
+        <h1 class="home_title">
+            {{ userTitle }}<br>
+            <span class="home_subtitle">&amp;</span> {{ userSubtitle }}
+        </h1>
+        <!-- Short Description -->
+        <p class="home_description">
+            {{ userDescription }}
+        </p>
+        <!-- Updated Contact Button -->
+        <a href="#" class="home_button" data-bs-toggle="modal" data-bs-target="#contactModal">{{ contactButtonText }}</a>
+    </div>
+
+    <!-- Visual/Background Image -->
+    <div class="home_visual">
+        <img ng-src="{{ userImage }}" alt="My Photo" class="home_background">
+    </div>
+</section>
+
+<!-- Contact Modal -->
+<div class="modal" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="contactModalLabel">Contact Me</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p><strong>Email:</strong> antalnorisz1@gmail.com</p>
+        <p><strong>Phone:</strong> 06202888919</p>
+        <p><strong>Address:</strong> 5940 Békés vármegye Tótkomlós</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Features Section -->
+<section class="features py-5" id="features" ng-controller="FeaturesController">
+    <div class="container">
+        <!-- Section Title -->
+        <div class="section-title text-center">
+            <h3 class="fw-bold text-dark">{{ featuresTitle }}</h3>
+            <p class="text-muted">{{ featuresSubtitle }}</p>
+        </div>
+        <div class="features_grid">
+            <!-- Loop through features -->
+            <div class="feature_card" ng-repeat="feature in features">
+                <div class="feature_icon">
+                    <i class="{{ feature.icon }}"></i>
+                </div>
+                <h5 class="feature_title">{{ feature.title }}</h5>
+                <p class="feature_description">{{ feature.description }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Me Section -->
+<section class="about-me" id="about-me" ng-controller="AboutMeController">
+    <div class="about-me_container">
+        <!-- About Me Image with Lightbox -->
+        <div class="about-me_image">
+            <a href="images/aboutme.jpg" target="_blank" class="lightbox">
+                <img ng-src="{{ aboutMeImage }}" alt="About Me Image">
+            </a>
+        </div>
+        <!-- About Me Content with Glassmorphism -->
+        <div class="about-me_content glass-effect">
+            <h2 class="about-me_title">{{ aboutMeTitle }}</h2>
+            <!-- Loop through paragraphs in the description -->
+            <p class="about-me_description" ng-repeat="paragraph in aboutMeDescription">
+                {{ paragraph }}
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Timeline Section -->
+<section class="timeline py-5" id="timeline" ng-controller="TimelineController">
+    <div class="container">
+        <!-- Section Title -->
+        <div class="section-title text-center">
+            <h3 class="fw-bold text-dark">My Journey</h3>
+            <p class="text-muted">Tapasztalataim </p>
+        </div>
+        <div class="timeline_grid">
+            <!-- Work Section -->
+            <div class="timeline_box glass-effect shadow-sm p-4 rounded mb-3 fade-in" 
+                 ng-repeat="item in work track by $index" 
+                 ng-style="{'--delay': ($index * 0.2) + 's'}">
+                <h5 class="timeline_heading text-dark">{{ item.position }}</h5>
+                <p class="timeline_year text-muted">{{ item.year }}</p>
+                <p class="timeline_subheading text-muted">{{ item.company }}</p>
+                <p class="timeline_description text-muted">{{ item.description }}</p>
+            </div>
+
+            <!-- Education Section -->
+            <div class="timeline_box glass-effect shadow-sm p-4 rounded mb-3 fade-in" 
+                 ng-repeat="item in education track by $index" 
+                 ng-if="$index !== 2" 
+                 ng-style="{'--delay': ((work.length + $index) * 0.2) + 's'}">
+                <h5 class="timeline_heading text-dark">{{ item.degree }}</h5>
+                <p class="timeline_year text-muted">{{ item.year }}</p>
+                <p class="timeline_subheading text-muted">{{ item.institution }}</p>
+                <p class="timeline_description text-muted">{{ item.description }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section class="skills-section py-5" id="skills" ng-controller="SkillsController">
+  <div class="container">
+    <div class="section-title text-center mb-5">
+      <h3 class="fw-bold text-dark">{{ skillsTitle }}</h3>
+    </div>
+    <div class="row justify-content-center g-4">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex align-items-stretch" ng-repeat="skill in skills">
+        <div class="card skill-card shadow h-100 w-100 text-center p-3 d-flex flex-column justify-content-between">
+          <div class="card-body">
+            <h5 class="card-title mb-2">{{ skill.category }}</h5>
+            <p class="card-text mb-3">{{ skill.details }}</p>
+            <div class="progress skill-progress mb-2 position-relative" data-skill-level="{{ skill.level }}">
+              <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="{{ skill.level }}" aria-valuemin="0" aria-valuemax="100" ng-style="{width: skill.level + '%'}">
+              </div>
+              <span class="skill-percent position-absolute top-50 start-50 translate-middle">{{ skill.level }}%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Hobbies Section -->
+<section class="hobbies py-5 fade-in-left" id="hobbies" ng-controller="HobbiesController">
+    <div class="container">
+        <!-- Section Title -->
+        <div class="section-title text-center">
+            <h3 class="fw-bold text-dark">Hobby</h3>
+            <p class="text-muted">A szabadidőmben szívesen foglalkozom ezekkel.</p>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-6" ng-repeat="hobby in hobbies">
+                <div class="hobby-card shadow-sm p-3 rounded">
+                    <img ng-src="{{ hobby.image }}" alt="{{ hobby.name }}" class="img-fluid rounded mb-2">
+                    <h5 class="hobby_name text-dark">{{ hobby.name }}</h5>
+                    <p class="hobby_description text-muted">{{ hobby.description }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Professions Section -->
+<section class="professions py-5 fade-in-left" id="professions" ng-controller="ProfessionsController">
+    <div class="container">
+        <!-- Section Title -->
+        <div class="section-title text-center">
+            <h3 class="fw-bold text-dark">These are the professions I have tried so far.</h3>
+            <p class="text-muted">Ezek a szakmák formálták a tapasztalataimat.</p>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6" ng-repeat="profession in professions">
+                <div class="profession-card shadow-sm p-3 rounded">
+                    <img ng-src="{{ profession.image }}" alt="{{ profession.name }}" class="img-fluid rounded mb-2">
+                    <h5 class="profession_name text-dark">{{ profession.name }}</h5>
+                    <p class="profession_description text-muted">{{ profession.description }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Languages and License Section -->
+<section class="languages-license py-5 fade-in-left" id="languages-license" ng-controller="LanguagesLicenseController">
+    <div class="container">
+        <!-- Section Title -->
+        <div class="section-title text-center">
+            <h3 class="fw-bold text-dark">Languages & Driver’s license</h3>
+            <p class="text-muted">Nyelvtudásom és Jogosítványom.</p>
+        </div>
+        <div class="row">
+            <!-- Languages -->
+            <div class="col-md-6">
+                <div class="languages-box shadow-sm p-4 rounded">
+                    <h4 class="fw-bold text-dark">Nyelvek</h4>
+                    <ul class="list-unstyled">
+                        <li ng-repeat="language in languages" class="text-muted">
+                            <i class="fa fa-language text-dark me-2"></i>{{ language.name }} - {{ language.level }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- License -->
+            <div class="col-md-6">
+                <div class="license-box shadow-sm p-4 rounded">
+                    <h4 class="fw-bold text-dark">Jogosítvány</h4>
+                    <p class="text-muted">
+                        <i class="fa fa-car text-dark me-2"></i>{{ license }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
